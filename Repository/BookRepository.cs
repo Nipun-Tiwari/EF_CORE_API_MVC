@@ -15,7 +15,7 @@ namespace EF_CORE_EMPTY_CONTROLLER.Repository
         
         public async Task<IEnumerable<Book>> GetAll()
         {
-            return await _context.Books.ToListAsync();
+            return await _context.Books.Include(b=>b.Author).ToListAsync();
         }
 
         public async Task<Book?> GetById(int id)
